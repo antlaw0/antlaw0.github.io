@@ -1,5 +1,4 @@
 var audio = new Audio();
-var audio2=new Audio();
 var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
 var infoArea=document.getElementById("info");
@@ -357,10 +356,11 @@ var weaponsFactor = weaponsScore*(weaponsPercent/100)
 	{
 		extraString="You survived this encounter.";
 	}
-	audio2.src="alarm.wav";
-	audio2.play();
+	audio.src="alarm.wav";
+	audio.onPlay = function(){alert(str+extraString);};
+	audio.play();
 	
-	alert(str+extraString);
+//alert(str+extraString);
 	
 	updateValues();
 }
