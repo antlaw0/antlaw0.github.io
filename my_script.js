@@ -357,7 +357,7 @@ var weaponsFactor = weaponsScore*(weaponsPercent/100)
 		extraString="You survived this encounter.";
 	}
 	audio.src="alarm.wav";
-	audio.onPlay = function(){alert(str+extraString);};
+	audio.onPlaying = function(){alert(str+extraString);};
 	audio.play();
 	
 //alert(str+extraString);
