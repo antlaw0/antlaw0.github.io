@@ -345,10 +345,8 @@ var weaponsFactor = weaponsScore*(weaponsPercent/100)
 	}
 	
 	shipHealth-=totalDamage;
-	audio.src="alarm.wav";
-	audio.play();
 	
-	var str = "You encounter a hostile ship! You are forced to defend yourself. Your ship takes "+totalDamage+". You deal "+playerDamage+" to the enemy ship.";
+	var str = "You encounter a hostile ship! You are forced to defend yourself. Your ship takes "+totalDamage+" damage. You deal "+playerDamage+" damage to the enemy ship.";
 	var extraString="";
 	if (shipHealth < 0)
 	{
@@ -360,5 +358,8 @@ var weaponsFactor = weaponsScore*(weaponsPercent/100)
 	}
 	
 	alert(str+extraString);
+	audio.src="alarm.wav";
+	audio.play();
+	
 	updateValues();
 }
