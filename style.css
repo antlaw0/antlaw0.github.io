@@ -1,0 +1,40 @@
+h1{
+font-family: "Impact";
+color: blue;
+text-align: center;
+}
+
+h2{
+color: green;
+}
+
+body{
+background-color: black;
+color: white;
+}
+
+table{
+border-style: solid;
+border-width: 3px;
+border-color: yellow;
+padding: 10px;
+margin: 10px;
+}
+
+th{
+border-style: solid;
+border-width: 1px;
+border-color: yellow;
+padding: 5px;
+margin: 5px;
+
+}
+.control{
+text-align: center;
+}
+canvas{
+background-color: black;
+border-style: solid;
+border-width: 1;
+border-color: yellow;
+}
