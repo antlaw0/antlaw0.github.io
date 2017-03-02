@@ -1,3 +1,8 @@
+
+p{
+max-width: 500px;
+}
+
 h1{
 font-family: "Impact";
 color: blue;
@@ -5,15 +10,15 @@ text-align: center;
 }
 
 h2{
+text-align: center;
 color: green;
 }
-
 body{
 background-color: black;
 color: white;
 }
 
-table{
+table, div{
 border-style: solid;
 border-width: 3px;
 border-color: yellow;
