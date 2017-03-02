@@ -345,7 +345,7 @@ var weaponsFactor = weaponsScore*(weaponsPercent/100)
 	}
 	
 	shipHealth-=totalDamage;
-	audio.src="laser.mp3";
+	audio.src="alarm.wav";
 	audio.play();
 	
 	var str = "You encounter a hostile ship! You are forced to defend yourself. Your ship takes "+totalDamage+". You deal "+playerDamage+" to the enemy ship.";
