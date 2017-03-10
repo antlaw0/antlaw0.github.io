@@ -5,6 +5,7 @@ var canvas = document.getElementById("canvas");
 var actionLog=document.getElementById("actionLog");
 var context = canvas.getContext("2d");
 var infoArea=document.getElementById("info");
+var currentInfoArea=document.getElementById("currentInfo");
 
 var goButton = document.getElementById("goButton");
 goButton.addEventListener('click', travel);
@@ -200,9 +201,14 @@ shieldsModifiedElement.innerHTML=shieldsScore*(shieldsPercent/100);
 sensorsModifiedElement.innerHTML=sensorsScore*(sensorsPercent/100);
 
 
+currentInfoArea.innerHTML="<h3>"+currentLocation.name+"</h3><br>"+currentLocation.description+"<br>Distance from current position: "+parseInt(getDistance(ship.x, ship.y, currentLocation.x, currentLocation.y))+" parsecs"+
+"<br> Cost to refuel: "+parseInt(currentLocation.energyCost)+" credits per unit"+"<br> Cost per points of repair: "+parseInt(currentLocation.repairCost)+"<br> <a href="+currentLocation.link+"> Go to Wikipedia page </a>";
+
+
 energyTotalDisplayArea.innerHTML= "Total Energy to be consumed:  "+getTotalEnergyUse();
 energyAvailableDisplayArea.innerHTML="Available Energy: "+energy;
 }
+
 //calculates all slider values and system scores for total energy value
 //returns integer of total energy usage
 function getTotalEnergyUse()
@@ -403,6 +409,7 @@ var weaponsFactor = weaponsScore*(weaponsPercent/100)
 				addLogEntry("Your sensors registered a potential mining source. Upon investigation, you find "+parseInt(foundResources)+" credits worth of harvestable ore.");
 				credits+=foundResources;
 				updateValues();
+			}
 		}
 		else
 		{

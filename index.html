@@ -1,4 +1,5 @@
 <DOCTYPEHTML>
+<title>Space Game</title>
 <center>
 <body>
 
@@ -26,32 +27,47 @@ You begin your journey at Earth's space dock. The crew is eager to venture out i
 </td>
 </tr>
 
+
+
+<div>
+<table>
+<tr>
+<th>CurrentLocation</th>
+<th>Selected Destination</th>
+</tr>
 <tr>
 <td>
-<div>
-<h2>Destination Information</h2>
-<p id="info"> Info </p>
-<button id="goButton"> Set course </button>
+<p id="currentInfo"> Info </p>
 <br>
-</div>
 <input type="number" id="howMuchEnergyToBuy"> </input> <button id="buyEnergyButton"> Buy Energy</button>
-
+<br>
 <input type="number" id="howMuchRepairToBuy"> </input> <button id="buyRepairButton"> Buy Repairs</button>
+</td>
 
+
+<td>
+<p id="info"> Info</p>
+<button id="goButton"> Set course </button>
 
 </td>
 </tr>
+</table>
+
+</div>
 
 
 
-<tr>
-<td>
-<center> Ship Status</center>
+
+<h3> Ship Status</h3>
+<table>
 <span id="displayHealth"> </span>
 <br>
 <span id="creditsTotal"> </span>
 <br>
 <span id="displayAvailableEnergyValue"> Available Energy:  1000 </span>
+
+
+</table>
 <table>
 <tr>
 <th>Sub-system</th>
