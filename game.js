@@ -102,7 +102,7 @@ if (my > all_locations[i].y-clickBox && my < all_locations[i].y+clickBox)
 
 {
 //play sound if click on valid location on canvas
-audio.src="beep.wav";
+audio.src="sounds/beep.wav";
 audio.play();
 l=all_locations[i];//set 'l' to this iteration's index in array
 selectedLocation=l;//set to l so selection box shows here
@@ -187,12 +187,20 @@ function showSensorsValue(newValue)
 function updateValues()
 {
 displayShipHealthElement.innerHTML= "Ship Health:  "+shipHealth+" / "+shipMaxHealth;
-creditsDisplayArea.innerHTML="Total Credits:  "+parseInt(credits);
+localStorage.shipHealth=shipHealth;
+localStorage.shipMaxHealth=shipMaxHealth;
+creditsDisplayArea.innerHTML="Total Credits:  "+parseInt(
+credits);
+localStorage.credits=credits;
 //if scores change, update their new values in the document
 document.getElementById("enginesRating").innerHTML=enginesScore;
 document.getElementById("weaponsRating").innerHTML=weaponsScore;
 document.getElementById("shieldsRating").innerHTML=shieldsScore;
 document.getElementById("sensorsRating").innerHTML=sensorsScore;
+localStorage.weaponsScore=weaponsScore;
+localStorage.EnginesScore=enginesScore;
+localStorage.shieldsScore=shieldsScore;
+localStorage.sensorsScore=sensorsScore;
 
 //update the modified system values
 enginesModifiedElement.innerHTML=enginesScore*(enginesPercent/100);
@@ -204,7 +212,8 @@ sensorsModifiedElement.innerHTML=sensorsScore*(sensorsPercent/100);
 currentInfoArea.innerHTML="<h3>"+currentLocation.name+"</h3><br>"+currentLocation.description+"<br>Distance from current position: "+parseInt(getDistance(ship.x, ship.y, currentLocation.x, currentLocation.y))+" parsecs"+
 "<br> Cost to refuel: "+parseInt(currentLocation.energyCost)+" credits per unit"+"<br> Cost per points of repair: "+parseInt(currentLocation.repairCost)+"<br> <a href="+currentLocation.link+"> Go to Wikipedia page </a>";
 
-
+localStorage.energy=energy;
+localStorage.maxEnergy=maxEnergy;
 energyTotalDisplayArea.innerHTML= "Total Energy to be consumed:  "+getTotalEnergyUse();
 energyAvailableDisplayArea.innerHTML="Available Energy: "+energy;
 }
@@ -265,7 +274,7 @@ var energyConsumption = Math.round(distance*3);
 		{
 			if (answer==true)
 			{
-				audio.src="warp.wav";//set audio source
+				audio.src="sounds/warp.wav";//set audio source
 		audio.play();//play the audio
 				//set new coordinates of ship
 				ship.x=selectedLocation.x;
@@ -279,7 +288,7 @@ var energyConsumption = Math.round(distance*3);
 		
 		}
 		else {
-			audio.src="negative.wav";//set audio source
+			audio.src="sounds/negative.wav";//set audio source
 		audio.play();//play the audio
 		alert("You do not have enough energy to make this trip.");//inform player of lack of energy
 		}
@@ -319,7 +328,7 @@ function buyEnergy()
 	//if player has enough to make purchase
 	if (credits >= total)
 	{
-		audio.src="buy.wav";//set audio source
+		audio.src="sounds/buy.wav";//set audio source
 		audio.play();//play the audio
 		
 		//display event in event log area in html
@@ -331,7 +340,7 @@ function buyEnergy()
 	}
 	else
 	{
-		audio.src="negative.wav";//set the audio source
+		audio.src="sounds/negative.wav";//set the audio source
 		audio.play();//play the audio
 		//update log entry area html to inform player they don't have enough credits
 		addLogEntry("You do not have enough credits to purchase this amount of energy.");
@@ -346,7 +355,7 @@ function buyRepair()
 	//check if have enough credits to cover repairs
 	if (credits >= total)
 	{
-		audio.src="buy.wav";//set audio source
+		audio.src="sounds/buy.wav";//set audio source
 		audio.play();//play the audio
 		
 		//update log entry area
@@ -363,7 +372,7 @@ function buyRepair()
 	}
 	else
 	{
-		audio.src="negative.wav";//set the audio source
+		audio.src="sounds/negative.wav";//set the audio source
 		audio.play();//play the audio
 		
 		//update the log entry area with this message
@@ -402,7 +411,7 @@ var weaponsFactor = weaponsScore*(weaponsPercent/100)
 			//probability of spotting energy source, chances increase further away from center of map
 			if (sensorsFactor > Math.round(randomInt(100)-getDistance(canvas.width/2, canvas.height/2, ship.x, ship.y)/4))
 			{
-				audio.src="buy.wav";
+				audio.src="sounds/buy.wav";
 				audio.play();
 				// potential gain increases further from center of map, at least get 10 credits
 				var foundResources= randomInt(getDistance(canvas.width/2, canvas.height/2, ship.x, ship.y))+10;
@@ -445,7 +454,7 @@ var weaponsFactor = weaponsScore*(weaponsPercent/100)
 	}
 	
 	shipHealth-=totalDamage;//deal the calculated damage to ship
-	audio.src="alarm.wav";
+	audio.src="sounds/alarm.wav";
 	audio.play();
 	//set the message string
 	var str = "You encounter a hostile ship! You are forced to defend yourself. Your ship takes "+totalDamage+" damage. You deal "+playerDamage+" damage to the enemy ship.";
