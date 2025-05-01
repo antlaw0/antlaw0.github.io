@@ -95,49 +95,16 @@
       }
     }
 
-    /* Futuristic glowing H1 */
+    /* Basic test for h1 visibility */
     .glow-title {
       font-family: 'Orbitron', sans-serif;
       font-size: 3.5em;
       font-weight: 900;
-      color: #ffffff; /* Changed to white to improve visibility */
-      text-shadow:
-        0 0 10px #00ffe7, /* Light cyan glow */
-        0 0 20px #00ffe7,
-        0 0 40px #00ffe7,
-        0 0 80px #00ffe7; /* Bright glow at the edges */
-      animation: pulse 2s infinite ease-in-out;
-      letter-spacing: 0.1em;
+      color: #ffffff; /* Ensuring visibility */
       text-align: center;
       margin: 0.5em auto;
       text-transform: uppercase;
-    }
-
-    @keyframes pulse {
-      0% {
-        text-shadow:
-          0 0 10px #00ffe7,
-          0 0 20px #00ffe7,
-          0 0 40px #00ffe7,
-          0 0 80px #00ffe7;
-        transform: scale(1);
-      }
-      50% {
-        text-shadow:
-          0 0 20px #00ffee,
-          0 0 40px #00ffee,
-          0 0 80px #00ffee,
-          0 0 160px #00ffee;
-        transform: scale(1.05);
-      }
-      100% {
-        text-shadow:
-          0 0 10px #00ffe7,
-          0 0 20px #00ffe7,
-          0 0 40px #00ffe7,
-          0 0 80px #00ffe7;
-        transform: scale(1);
-      }
+      /* Remove text-shadow for testing */
     }
   </style>
 </head>
