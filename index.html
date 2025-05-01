@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Antlaw Games - Home</title>
+
+  <!-- Orbitron font for futuristic heading -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: url('mainBackground.png') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+    }
+
+    #header, #footer {
+      flex-shrink: 0;
+      position: sticky;
+      z-index: 10;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 1rem;
+      text-align: center;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #header:hover, #footer:hover {
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #header {
+      top: 0;
+    }
+
+    #footer {
+      bottom: 0;
+    }
+
+    #content-wrapper {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 1rem 0;
+    }
+
+    #content {
+      width: 75%;
+      max-width: 1400px;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 1.5rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      max-height: 100%;
+      overflow-y: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    #content.loaded {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      #content {
+        width: 90%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #header, #footer {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      #content {
+        padding: 1rem;
+      }
+    }
+
+    /* Futuristic glowing H1 */
+    .glow-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3.5em;
+      font-weight: 900;
+      color: #00ffe7;
+      text-shadow:
+        0 0 10px #00ffe7,
+        0 0 20px #00ffe7,
+        0 0 40px #00ffe7,
+        0 0 80px #00ffe7;
+      animation: pulse 2s infinite ease-in-out;
+      letter-spacing: 0.1em;
+      text-align: center;
+      margin: 0.5em auto;
+      text-transform: uppercase;
+    }
+
+    @keyframes pulse {
+      0% {
+        text-shadow:
+          0 0 10px #00ffe7,
+          0 0 20px #00ffe7,
+          0 0 40px #00ffe7,
+          0 0 80px #00ffe7;
+        transform: scale(1);
+      }
+      50% {
+        text-shadow:
+          0 0 20px #00ffee,
+          0 0 40px #00ffee,
+          0 0 80px #00ffee,
+          0 0 160px #00ffee;
+        transform: scale(1.05);
+      }
+      100% {
+        text-shadow:
+          0 0 10px #00ffe7,
+          0 0 20px #00ffe7,
+          0 0 40px #00ffe7,
+          0 0 80px #00ffe7;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
+
+  <div id="content-wrapper">
+    <div id="content">
+      
+      <!-- Glowing Animated Title -->
+      <h1 class="glow-title">ANTLAW GAMES</h1>
+
+      
+      <p>Welcome to the scrollable content section!</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scroll to see more content.</p>
+      <p style="margin-top: 1000px;">You've reached the bottom of the page!</p>
+    </div>
+  </div>
+
+  <div id="footer"></div>
+
+  <script>
+    // Load header and footer dynamically
+    fetch('header.html')
+      .then(response => response.text())
+      .then(html => document.getElementById('header').innerHTML = html);
+
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(html => document.getElementById('footer').innerHTML = html);
+
+    // Add animation class after content is ready
+    window.addEventListener('DOMContentLoaded', () => {
+      const content = document.getElementById('content');
+      requestAnimationFrame(() => {
+        content.classList.add('loaded');
+      });
+    });
+  </script>
+</body>
+</html>
