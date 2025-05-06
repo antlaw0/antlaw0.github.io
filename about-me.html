@@ -1,0 +1,37 @@
+<html>
+<head>
+<title> About Me</title>
+
+</head>
+<body>
+<div id="header"></div>
+<h1> About Me</h1>
+<br>
+I started with game development about 15-years ago with RPG Maker2000. I started out with just drag and drop programming, perhaps the training wheels of coding. Eventually, the things I want to make in games were going beyond the limitations of dragging and dropping conditionals and actions. I was reluctant to learn coding as it seemed too complicated. And I was right. I started learning coding by looking up different tutorials online and studying scripts others made for RPG Maker. It was about this time I started in on RPG Maker XP which I still use to this day. RMXP has way more resources than more current versions of RPG Maker despite it being ancient by software standards. I started by editing and modifying scripts I'd download. It was around this time I decided to pursue the whole software development thing at Minneapolis College. My few years of tinkering in programming gave me a huge leg up in progressing through courses. I learned Python for starters then had to choose whether to go down the C-sharp route, mobile development, or web development. I chose web development due to its availability across platforms. A lot of my class projects were games which I learned were a great way to learn and practice programming. 
+I graduated with my associates in Software Development. I continued to make games, now as a way better and more confident programmer. Many game creaters fall into the trap of never actually publishing a game. I too was in this phase for a long time having many partially finished projects.
+Then Covid. I had nothing but time. No excuse not to finally get a game out there. I'm not a fan of deadlines as I believe they limit the creative process and often lead to flawed outcomes. Something like art can't be pushed out the door not fully realized because of some arbitrary deadline. So what did I do about it? Set a deadline. I set the deadline for my birthday of that year scope-creep be damned. I think going with a roguelike was a good idea as it didn't call for a huge episodic narrative like an RPG would. Instead, it would be short, concentrated bursts ofchallenge. Thus Omega Protocol: Sole Defender was born. It may not be the greatest game in the world, but hey, at least I had finally published one. I could finally call myself and indie game developer. It was originally going to be called "Sol Defender" but there was already a game on itch.io with that name. Plus I wanted something more than just a one-off experience. I wanted my own Star Trek/Star Wars. This is where the "Omega Protocol" comes into play. In my attempt at originality, I said "what if trilogy but backwards? Me likey non-linear narrative. Going in order is so... pedestrian." Yes, Star Wars sort of does this but mine is completely backwards... I mean... non-linear. 
+It's bottom of the ninth, bases loaded, two strikes, nothing short of a miracle will win the game. One player, one ship, one chance. Do or die. This is the premise for Omega Protocol Sole Defender. Them aliens are poised to deliver the deathblow to humanity. But humanity decided to be proactive for once. A select group of individuals throughout the decades have been tasked with defending humanity against extostencial threats. In the distant future, these unsung heroes' constant vigulance pays off. Through a series of events that unfold over a century, a small group of humans 
+<p>
+</p>
+
+<div id="footer"></div>
+</body>
+<script>
+    // Load header and footer dynamically
+    fetch('header.html')
+      .then(response => response.text())
+      .then(html => document.getElementById('header').innerHTML = html);
+
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(html => document.getElementById('footer').innerHTML = html);
+
+    // Add animation class after content is ready
+    window.addEventListener('DOMContentLoaded', () => {
+      const content = document.getElementById('content');
+      requestAnimationFrame(() => {
+        content.classList.add('loaded');
+      });
+    });
+  </script>
+</html>
